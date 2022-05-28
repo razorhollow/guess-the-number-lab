@@ -10,11 +10,15 @@ const game = {
   },
   getGuess: function() {
     let currentGuess
-    while (!currentGuess || currentGuess >= this.biggestNum){
-    currentGuess = (parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))) 
-    if(currentGuess >=this.smallestNum && currentGuess <= this.biggestNumreturn){
-      currentGuess = currentGuess}
-     }
+    let input = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))
+    while (!currentGuess){
+      if( input >= this.smallestNum && input <= this.biggestNum){ //not working with negative numbers//
+        currentGuess = input} else {
+          alert('Invalid Input, Try Again')
+          input = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))
+          currentGuess = false
+        }
+      }
      return currentGuess
     } 
   } 
