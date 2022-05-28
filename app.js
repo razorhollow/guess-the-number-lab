@@ -9,6 +9,12 @@ const game = {
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
   },
   getGuess: function() {
-    return parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))
-  }
-}
+    let currentGuess
+    while (!currentGuess || currentGuess >= this.biggestNum){
+    currentGuess = (parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))) 
+    if(currentGuess >=this.smallestNum && currentGuess <= this.biggestNumreturn){
+      currentGuess = currentGuess}
+     }
+     return currentGuess
+    } 
+  } 
