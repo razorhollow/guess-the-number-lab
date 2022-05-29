@@ -11,6 +11,7 @@ const game = {
       guess = this.getGuess()
       this.render(guess, this.prevGuesses)
     }while (guess !== this.secretNum) 
+    return ('Game Over')
     }
 
   ,
@@ -41,14 +42,6 @@ const game = {
   }
 } 
 
-// 5. Add a `render` method to `game` that `play` will call after a guess has been made that alerts:
-//   - If the secret has been guessed: `Congrats! You guessed the number in [number of prevGuesses]!`
-//   - Otherwise: `Your guess is too [high|low] Previous guesses: x, x, x, x`
-//   - Hints:
-//       - `render` won’t be able to access any of `play`’s local variables, e.g., `guess`, so be sure pass `render` any arguments as needed (you may not have built your program to use any, that's ok if that's the case!)
-//       - Template literals not only have interpolation, but they also honor whitespace - including line breaks!
-//       - The list of previous guesses can be generated using the array `join` method.
-// 6. The `play` method should end (`return`) when the guess matches `secretNum`.
 
 // ## Level Up 🚀
 
