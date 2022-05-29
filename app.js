@@ -9,17 +9,16 @@ const game = {
     let guess
     do {
       guess = this.getGuess()
-      console.log(guess)
+      this.render(guess, this.prevGuesses)
     }while (guess !== this.secretNum) 
-    
-  }
+    }
 
   ,
   getGuess: function() {
     let currentGuess
     let input = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))
     while (!currentGuess){
-      if( input >= this.smallestNum && input <= this.biggestNum){ //not working with negative numbers//
+      if( input >= this.smallestNum && input <= this.biggestNum){ 
         currentGuess = input} else {
           alert('Invalid Input, Try Again')
           input = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`))
@@ -29,10 +28,18 @@ const game = {
      return currentGuess
     }
   ,
-  render: function() {
-
+  render: function(guess, arr) {
+    if (guess === this.secretNum) {
+      alert(`Congrats! You guessed the number in ${arr.length + 1}!`)
+    } else if (guess > this.secretNum){
+      this.prevGuesses.push(guess)
+      alert(`Your guess is too high. Previous guesses: ${arr.join(", ")}`)
+    } else if (guess < this.secretNum){
+      this.prevGuesses.push(guess)
+      alert(`Your guess is too low. Previous guesses: ${arr.join(", ")}`)
+    }
   }
-  } 
+} 
 
 // 5. Add a `render` method to `game` that `play` will call after a guess has been made that alerts:
 //   - If the secret has been guessed: `Congrats! You guessed the number in [number of prevGuesses]!`
